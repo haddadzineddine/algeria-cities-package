@@ -14,19 +14,24 @@ class City
         $this->wilayas = Wilayas::load();
     }
 
+    public static function load(...$wilayas): self
+    {
+        $instance = new static();
+
+        $instance->wilayas->add($wilayas);
+
+        return $instance;
+    }
 
     public function getWilaya(string | int $wilaya): Wilaya | null
     {
         return $this->wilayas->filter($wilaya);
     }
 
-
-    public static function load($wilaya): self
+    public function getWilayas(): array
     {
-        $instance = new static();
-
-        $instance->wilayas->add($wilaya);
-
-        return $instance;
+        return $this->wilayas->all();
     }
+
+
 }

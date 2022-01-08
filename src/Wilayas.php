@@ -36,8 +36,26 @@ class Wilayas
     }
 
 
-    public function add(Wilaya $wilaya): void
+    public function add(array $wilayas): void
     {
-        $this->wilayas[] = $wilaya;
+        array_map(
+            fn ($wilaya) => $this->isValid($wilaya) && $this->wilayas[] = $wilaya,
+            $wilayas
+        );
+    }
+
+    public function all()
+    {
+        return $this->wilayas;
+    }
+
+
+    protected function isValid($wilaya)
+    {
+        if (!$wilaya instanceof Wilaya) {
+            throw new \Exception('Wilaya must be an instance of Wilaya');
+        }
+
+        return true;
     }
 }

@@ -7,6 +7,7 @@ use PHPUnit\Framework\TestCase;
 
 class CityTest extends TestCase
 {
+
     /** @test */
     public function can_get_wilaya_by_its_code()
     {
@@ -23,7 +24,21 @@ class CityTest extends TestCase
     {
         $city = new City(); 
 
-        $this->assertEquals($city->getWilaya(10), null);
+        $this->assertEquals($city->getWilaya('wilaya that does not exist'), null);
 
     }
+
+    /** @test */
+    public function can_get_all_wilayas()
+    {
+        $wilaya_1 = new Wilaya(1, 'Adrar', 'أدرار');
+        $wilaya_2 = new Wilaya(2, 'Chlef', 'شلف');
+        $wilaya_3 = new Wilaya(3, 'Laghouat', 'لغوات');
+        $city = City::load($wilaya_1,$wilaya_2,$wilaya_3);
+
+        $this->assertEquals($city->getWilayas(), [$wilaya_1, $wilaya_2, $wilaya_3]);
+        
+    }
+
+
 }
