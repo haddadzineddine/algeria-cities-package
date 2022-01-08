@@ -71,7 +71,7 @@ class Wilayas
     protected function isValid($wilaya)
     {
         if (!$wilaya instanceof Wilaya) {
-            throw new \Exception('Wilaya must be an instance of Wilaya');
+            throw new \Exception('The argument must be an instance of Wilaya');
         }
 
         return true;
