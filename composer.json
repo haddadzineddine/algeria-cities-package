@@ -1,0 +1,23 @@
+{
+    "name": "zineddine/algeria-cities",
+
+    "authors": [{
+        "name": "haddadzineddine",
+        "email": "hz_haddad@esi.dz"
+    }],
+    "require": {
+        "phpunit/phpunit": "^9.5"
+    },
+
+    "autoload": {
+        "psr-4": {
+            "AlgeriaCities\\": "src/"
+        }
+    },
+
+    "autoload-dev": {
+        "psr-4": {
+            "AlgeriaCities\\Tests\\": "tests/"
+        }
+    }
+}
