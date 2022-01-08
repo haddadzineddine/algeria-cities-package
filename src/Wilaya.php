@@ -6,23 +6,32 @@ namespace AlgeriaCities;
 class Wilaya
 {
     public function __construct(
-        protected $code,
-        protected $name,
-        protected $name_ascii
+        protected int $code,
+        protected string $name,
+        protected string $name_ascii
     ) {
         //
     }
 
-    public function getCode()
+    /**
+     * @return int
+     */
+    public function getCode(): int
     {
         return $this->code;
     }
 
-    public function getName()
+    /**
+     * @return string
+     */
+    public function getName(): string
     {
         return $this->name;
     }
 
+    /**
+     * @return string
+     */
     public function getNameAscii()
     {
         return $this->name_ascii;
