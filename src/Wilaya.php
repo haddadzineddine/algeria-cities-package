@@ -52,13 +52,13 @@ class Wilaya
 
     /**
      * Check if the param is type of Commune
-     * @param mixed $wilaya
+     * @param mixed $commune
      * @return bool
      * @throws \Exception
      */
-    protected function isValid($wilaya)
+    protected function isValid($commune)
     {
-        if (!$wilaya instanceof Commune) {
+        if (!$commune instanceof Commune) {
             throw new \Exception('The argument must be an instance of Commune');
         }
 

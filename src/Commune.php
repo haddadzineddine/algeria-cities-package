@@ -1,4 +1,5 @@
 <?php
+
 namespace AlgeriaCities;
 
 
@@ -13,18 +14,26 @@ class Commune
         //
     }
 
-
-    public function getWilayaCode()
+    /**
+     * @return int
+     */
+    public function getWilayaCode(): int
     {
         return $this->wilaya_code;
     }
 
-    public function getName()
+    /**
+     * @return string
+     */
+    public function getName(): string
     {
         return $this->name;
     }
 
-    public function getArabicName()
+    /**
+     * @return string
+     */
+    public function getArabicName(): string
     {
         return $this->wilaya;
     }
