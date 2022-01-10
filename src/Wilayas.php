@@ -37,7 +37,7 @@ class Wilayas
 
         return array_filter(
             $this->wilayas,
-            fn ($wilaya) => $wilaya->getName() == $id || $wilaya->getNameAscii() == $id
+            fn ($wilaya) => $wilaya->getName() == $id || $wilaya->getArabicName() == $id
         )[0] ?? null;
     }
 

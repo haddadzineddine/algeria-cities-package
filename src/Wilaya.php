@@ -5,10 +5,12 @@ namespace AlgeriaCities;
 
 class Wilaya
 {
+    protected array $communes = [];
+
     public function __construct(
         protected int $code,
         protected string $name,
-        protected string $name_ascii
+        protected string $arabic_name
     ) {
         //
     }
@@ -32,8 +34,44 @@ class Wilaya
     /**
      * @return string
      */
-    public function getNameAscii()
+    public function getArabicName()
     {
-        return $this->name_ascii;
+        return $this->arabic_name;
+    }
+
+    /**
+     * @return void
+     */
+    public function loadCommunes(...$communes): void
+    {
+        array_map(
+            fn ($commune) => $this->isValid($commune) && $this->communes[] = $commune,
+            $communes
+        );
+    }
+
+    /**
+     * Check if the param is type of Commune
+     * @param mixed $wilaya
+     * @return bool
+     * @throws \Exception
+     */
+    protected function isValid($wilaya)
+    {
+        if (!$wilaya instanceof Commune) {
+            throw new \Exception('The argument must be an instance of Commune');
+        }
+
+        return true;
+    }
+
+    /**
+     * Get all communes
+     * @return array
+     */
+
+    public function getCommunes()
+    {
+        return $this->communes;
     }
 }
